@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import {
   createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword,
@@ -15,6 +16,7 @@ const defaultFields = {
 const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFields);
   const { email, password } = formFields;
+  const navigate = useNavigate();
 
   const resetFormFields = () => {
     setFormFields(defaultFields);
@@ -25,16 +27,23 @@ const SignInForm = () => {
     setFormFields({ ...formFields, [name]: value });
   };
 
+  const redirectToHome = () => {
+    navigate("/");
+  };
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(user);
+    await signInWithGooglePopup();
+    redirectToHome();
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await signInAuthUserWithEmailAndPassword(email, password);
+      const { user } = await signInAuthUserWithEmailAndPassword(
+        email,
+        password,
+      );
       resetFormFields();
+      redirectToHome();
     } catch (error) {
       if (
         error.code === "auth/user-not-found" ||
