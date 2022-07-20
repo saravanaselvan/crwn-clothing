@@ -1,0 +1,45 @@
+.checkout-container {
+  display: flex;
+  width: 55%;
+  margin: auto;
+  flex-direction: column;
+
+  .header {
+    display: flex;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ddd;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+
+    div {
+      width: 23%;
+
+      &:last-child {
+        width: 8%;
+      }
+    }
+  }
+
+  .total {
+    font-size: 2rem;
+    text-align: right;
+    text-transform: uppercase;
+    padding: 1rem 0;
+  }
+
+  .empty-message {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 4rem;
+  }
+
+  .go-to-shop {
+    a {
+      color: blue;
+      text-decoration: underline;
+    }
+
+    padding-top: 2rem;
+  }
+}
