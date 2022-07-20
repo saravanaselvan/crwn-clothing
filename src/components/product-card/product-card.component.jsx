@@ -1,7 +1,11 @@
+import { CartState } from "../../contexts/cart.context";
 import Button from "../button/button.component";
 import "./product-card.styles.scss";
 
-const ProductCard = ({ id, name, price, imageUrl }) => {
+const ProductCard = (product) => {
+  const { id, name, price, imageUrl } = product;
+  const { addItemToCart } = CartState();
+
   return (
     <div className="product-card-container">
       <img src={imageUrl} alt={`${name}`} />
@@ -9,7 +13,9 @@ const ProductCard = ({ id, name, price, imageUrl }) => {
         <span className="name">{name}</span>
         <span className="price">{price}</span>
       </div>
-      <Button buttonType="inverted">ADD TO CART</Button>
+      <Button buttonType="inverted" onClick={() => addItemToCart(product)}>
+        ADD TO CART
+      </Button>
     </div>
   );
 };

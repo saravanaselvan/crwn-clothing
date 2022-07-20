@@ -1,0 +1,17 @@
+.cart-item-container {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 10px;
+
+  // justify-content: space-between;
+  align-items: center;
+
+  img {
+    width: 60px;
+  }
+
+  .cart-item__product-details {
+    display: flex;
+    flex-direction: column;
+  }
+}
