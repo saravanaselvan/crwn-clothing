@@ -1,19 +1,14 @@
-import ProductCard from "../../components/product-card/product-card.component";
-import { ProductsState } from "../../contexts/products.context";
+import { Route, Routes } from "react-router";
+import CategoryPreview from "../../components/category-preview/category-preview.component";
+import Products from "../../components/products/products.component";
 import "./shop.styles.scss";
 
 const Shop = () => {
-  const { products } = ProductsState();
-
   return (
-    <div>
-      <h2>Buy my products</h2>
-      <div className="products-container">
-        {products.slice(0, 4).map((product) => (
-          <ProductCard key={product.id} {...product} />
-        ))}
-      </div>
-    </div>
+    <Routes>
+      <Route index element={<CategoryPreview />} />
+      <Route path="/:category" element={<Products />} />
+    </Routes>
   );
 };
 
