@@ -8,10 +8,12 @@ import CartIcon from "../../components/cart-icon/cart-icon.component";
 import { CartState } from "../../contexts/cart.context";
 import { UserContext } from "../../contexts/user.context";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
+import { useSelector } from "react-redux";
 import "./navigation.styles.scss";
+import { selectCurrentUser } from "../../store/user/user.selector";
 
 const Navigation = () => {
-  const { currentUser } = useContext(UserContext);
+  const currentUser = useSelector(selectCurrentUser);
   const { isCartOpen } = CartState();
 
   return (
