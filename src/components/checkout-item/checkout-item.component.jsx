@@ -2,7 +2,7 @@ import { CartState } from "../../contexts/cart.context";
 import "./checkout-item.styles.scss";
 
 const CheckoutItem = ({ product }) => {
-  const { id, name, price, quantity, imageUrl } = product;
+  const { name, price, quantity, imageUrl } = product;
   const { removeItemFromCart, decreaseQuantity, increaseQuantity } =
     CartState();
   const deleteItem = () => {

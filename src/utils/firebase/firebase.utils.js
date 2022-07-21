@@ -1,25 +1,24 @@
 import { initializeApp } from "firebase/app";
 import {
-  getAuth,
-  signInWithRedirect,
-  signInWithPopup,
-  GoogleAuthProvider,
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signOut,
+  getAuth,
+  GoogleAuthProvider,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
 } from "firebase/auth";
-
 import {
-  getFirestore,
+  collection,
   doc,
   getDoc,
-  setDoc,
-  collection,
-  writeBatch,
-  query,
   getDocs,
+  getFirestore,
+  query,
+  setDoc,
+  writeBatch,
 } from "firebase/firestore";
+
 const firebaseConfig = {
   apiKey: "AIzaSyCdOLAo4cqn4AD4PUlMOwqANtLKtN5qm3A",
   authDomain: "crwn-clothing-db-b00dc.firebaseapp.com",
@@ -29,7 +28,7 @@ const firebaseConfig = {
   appId: "1:512156786946:web:06424d32dd220ad411e21b",
 };
 
-const firebaseApp = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 
 const provider = new GoogleAuthProvider();
 

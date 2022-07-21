@@ -1,6 +1,4 @@
-import { useEffect } from "react";
 import Directory from "../../components/directory/directory.component";
-import { getCategoriesAndDocuments } from "../../utils/firebase/firebase.utils";
 
 const Home = () => {
   const categories = [

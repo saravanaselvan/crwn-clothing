@@ -3,7 +3,7 @@ import Button from "../button/button.component";
 import "./product-card.styles.scss";
 
 const ProductCard = (product) => {
-  const { id, name, price, imageUrl } = product;
+  const { name, price, imageUrl } = product;
   const { addItemToCart } = CartState();
 
   return (
