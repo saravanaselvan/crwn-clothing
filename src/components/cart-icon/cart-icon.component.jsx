@@ -1,12 +1,13 @@
 import { ReactComponent as ShoppingIcon } from "../../assets/shopping-bag.svg";
-import { CartState } from "../../contexts/cart.context";
+import { ACTION_TYPES, CartState } from "../../contexts/cart.context";
+import { createAction } from "../../utils/reducer.utils";
 import "./cart-icon.styles.scss";
 
 const CartIcon = () => {
-  const { isCartOpen, setIsCartOpen, cartItemCount } = CartState();
+  const { cartItemCount, cartDispatch } = CartState();
 
   const toggleIsCartOpen = () => {
-    setIsCartOpen(!isCartOpen);
+    cartDispatch(createAction(ACTION_TYPES.TOGGLE_CART_OPEN));
   };
 
   return (

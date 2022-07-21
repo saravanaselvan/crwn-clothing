@@ -1,16 +1,18 @@
-import { CartState } from "../../contexts/cart.context";
+import { CartState, ACTION_TYPES } from "../../contexts/cart.context";
+import { createAction } from "../../utils/reducer.utils";
 import "./checkout-item.styles.scss";
 
 const CheckoutItem = ({ product }) => {
   const { name, price, quantity, imageUrl } = product;
-  const { removeItemFromCart, decreaseQuantity, increaseQuantity } =
-    CartState();
+  const { cartDispatch } = CartState();
   const deleteItem = () => {
-    removeItemFromCart(product);
+    cartDispatch(createAction(ACTION_TYPES.REMOVE_FROM_CART, product));
   };
 
-  const decreaseItemQuantity = () => decreaseQuantity(product);
-  const increaseItemQuantity = () => increaseQuantity(product);
+  const decreaseItemQuantity = () =>
+    cartDispatch(createAction(ACTION_TYPES.DECREASE_QUANTITY, product));
+  const increaseItemQuantity = () =>
+    cartDispatch(createAction(ACTION_TYPES.INCREASE_QUANTITY, product));
   return (
     <div className="checkout-item-container">
       <div>
